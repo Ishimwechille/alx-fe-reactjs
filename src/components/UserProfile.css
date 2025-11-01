@@ -1,0 +1,20 @@
+.user-profile-card {
+  border: 2px solid #61dafb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px auto;
+  max-width: 300px;
+  background-color: #f0f8ff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.user-profile-card h2 {
+  color: #20232a;
+  margin-bottom: 8px;
+}
+
+.user-profile-card p {
+  color: #333;
+  margin: 4px 0;
+}
