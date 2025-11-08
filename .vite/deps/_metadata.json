@@ -1,0 +1,32 @@
+{
+  "hash": "4046b706",
+  "configHash": "e21b663f",
+  "lockfileHash": "d9cea423",
+  "browserHash": "3624e62d",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../alx-react-app-new/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "c4199963",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../alx-react-app-new/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "930b7298",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../alx-react-app-new/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "211ca0d0",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "react-CmEabj7r": {
+      "file": "react-CmEabj7r.js",
+      "isDynamicEntry": false
+    }
+  }
+}
