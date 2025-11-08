@@ -1,11 +1,12 @@
-import React from "react";
-import UserProfile from "./components/UserProfile";
+// src/App.jsx
+import React from 'react';
+import Counter from './components/Counter';
 
 function App() {
   return (
     <div>
-      <h1>Welcome to My App</h1>
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+      <h1 style={{ textAlign: 'center', marginTop: '30px' }}>Welcome to the Counter App</h1>
+      <Counter />
     </div>
   );
 }

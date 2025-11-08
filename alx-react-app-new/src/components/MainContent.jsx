@@ -7,11 +7,10 @@ const MainContent = () => {
       textAlign: 'center'
     }}>
       <p style={{ fontSize: '18px', color: '#333' }}>
-        Welcome to my favorite cities app! Explore beautiful cities around the world.
+        I love to visit New York, Paris, and Tokyo.
       </p>
     </main>
   );
 };
 
 export default MainContent;
-
