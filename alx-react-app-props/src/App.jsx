@@ -5,8 +5,8 @@ import UserContext from "./UserContext";
 function App() {
   // Example user data
   const userData = {
-    name: "Achille Ishimwe",
-    email: "achille@example.com",
+    name: "Jane Doe",
+    email: "jane.doe@example.com",
   };
 
   return (
