@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import ProfileDetails from "./pages/ProfileDetails";
 import ProfileSettings from "./pages/ProfileSettings";
-import Post from "./pages/Post";
+import BlogPost from "./pages/BlogPost"; // renamed component
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/AuthContext";
 
@@ -34,7 +34,7 @@ export default function App() {
           </Route>
 
           {/* Dynamic Route */}
-          <Route path="/post/:postId" element={<Post />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
