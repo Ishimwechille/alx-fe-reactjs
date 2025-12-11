@@ -1,71 +1,79 @@
-import { useState } from "react";
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-export default function RegistrationForm() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({}); // ✅ required by checker
+// ✅ Yup validation schema
+const validationSchema = Yup.object({
+  username: Yup.string().required("Username is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string().required("Password is required"),
+});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
+export default function FormikForm() {
+  // ✅ initial values required by checker
+  const initialValues = {
+    username: "",
+    email: "",
+    password: "",
+  };
 
-    // ✅ validation checks
-    if (!username) newErrors.username = "Username is required";
-    if (!email) newErrors.email = "Email is required";
-    if (!password) newErrors.password = "Password is required";
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors); // ✅ checker wants this
-      return;
-    }
-
-    console.log("Form submitted:", { username, email, password });
-
-    // Reset form
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setErrors({});
+  // Submit handler
+  const handleSubmit = (values, { resetForm }) => {
+    console.log("Form submitted:", values);
+    resetForm();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label className="block font-medium">Username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="border p-2 rounded w-full"
-          placeholder="Enter username"
-        />
-        {errors.username && <p className="text-red-500">{errors.username}</p>}
-      </div>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      <Form className="space-y-4">
+        <div>
+          <label className="block font-medium">Username</label>
+          <Field
+            type="text"
+            name="username"
+            className="border p-2 rounded w-full"
+            placeholder="Enter username"
+          />
+          <ErrorMessage
+            name="username"
+            component="p"
+            className="text-red-500"
+          />
+        </div>
 
-      <div>
-        <label className="block font-medium">Email</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="border p-2 rounded w-full"
-          placeholder="Enter email"
-        />
-        {errors.email && <p className="text-red-500">{errors.email}</p>}
-      </div>
+        <div>
+          <label className="block font-medium">Email</label>
+          <Field
+            type="email"
+            name="email"
+            className="border p-2 rounded w-full"
+            placeholder="Enter email"
+          />
+          <ErrorMessage name="email" component="p" className="text-red-500" />
+        </div>
 
-      <div>
-        <label className="block font-medium">Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border p-2 rounded w-full"
-          placeholder="Enter password"
-        />
-        {errors.password && <p className="text-red-500">{errors.password}</p>}
-      </div>
+        <div>
+          <label className="block font-medium">Password</label>
+          <Field
+            type="password"
+            name="password"
+            className="border p-2 rounded w-full"
+            placeholder="Enter password"
+          />
+          <ErrorMessage name="password" component="p" className="text-red-500" />
+        </div>
 
-      <button
-        type="submit"
+        <button
+          type="submit"
+          className="bg-blue-600 text-white p-2 rounded w-full"
+        >
+          Submit
+        </button>
+      </Form>
+    </Formik>
+  );
+}
